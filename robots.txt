@@ -1,0 +1,9 @@
+# NANOLITH robots.txt
+# Replace the Sitemap URL with your live base URL
+# (https://USERNAME.github.io/REPO/sitemap.xml for project pages,
+#  or https://YOURDOMAIN.com/sitemap.xml with a custom domain).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.nanolith.com/sitemap.xml

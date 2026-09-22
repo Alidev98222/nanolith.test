@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NANOLITH sitemap â€” replace https://www.nanolith.com/ with your live
+     base URL before submitting to Search Console.
+     - GitHub Pages user/org site:  https://USERNAME.github.io/
+     - GitHub Pages project site:   https://USERNAME.github.io/REPO/
+     - Custom domain:               https://YOURDOMAIN.com/
+     Note: article and data-sheet deep links are query-parameter views
+     (?a=â€¦, ?ds=â€¦) of insights.html / products.html, so they are NOT
+     separate sitemap entries â€” their canonical URLs are the list pages. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.nanolith.com/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.nanolith.com/technology.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nanolith.com/products.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nanolith.com/insights.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nanolith.com/about.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nanolith.com/contact.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
