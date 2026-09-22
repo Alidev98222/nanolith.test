@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NANOLITH — Engineering Matter at the Nanoscale</title>
+  <meta name="description" content="NANOLITH is a micro & nanotechnology company delivering nanofabrication, nanocharacterization and device integration for research and industry — from first simulation to packaged device." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0A1A2F" />
+
+  <!-- Open Graph (per-page OG handled by router titles; full package ships in Phase 3) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NANOLITH" />
+  <meta property="og:title" content="NANOLITH — Engineering Matter at the Nanoscale" />
+  <meta property="og:description" content="Micro & nanotechnology engineering: nanofabrication, nanocharacterization, computational modeling and device integration." />
+  <meta property="og:url" content="https://www.nanolith.com/" /><!-- [PLACEHOLDER] canonical domain -->
+
+  <!-- Fonts: IBM Plex Sans (display+body) & IBM Plex Mono (technical labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NANOLITH",
+    "description": "Micro & nanotechnology company providing nanofabrication, nanocharacterization and micro-system integration services.",
+    "url": "https://www.nanolith.com/",
+    "email": "hello@nanolith.com",
+    "address": { "@type": "PostalAddress", "streetAddress": "[PLACEHOLDER — Street & No.]", "addressLocality": "[PLACEHOLDER — City]", "addressCountry": "[PLACEHOLDER — Country]" },
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+  /* ============================================================
+     NANOLITH — DESIGN SYSTEM v1.0  (Blueprint Precision)
+     Transfer 1:1 into Figma. Spec table below.
+
+     COLOR TOKENS        VALUE        ROLE
+     paper               #F6F8FB      page ground (cool near-white)
+     surface             #FFFFFF      cards / raised surfaces
+     ink                 #0C1B2A      primary text (12.4:1 on paper)
+     ink-2               #46586B      secondary text (6.1:1 on paper)
+     line                #DCE3EC      hairlines, borders, dividers
+     navy                #0A1A2F      dark ground: hero, bands, footer
+     navy-2              #12263F      dark ground: footer, elevated dark
+     action              #2058E0      THE single action color (white text 5.9:1)
+     action-hover        #1A47B8      pressed/hover of action
+     signal              #00B4D8      instrument cyan — ONLY for data/
+                                      lattice/chart marks on dark ground
+     ok                  #0E9F6E      success state
+     err                 #D64545      error state
+     focus               #3F7BF2      :focus-visible ring (works on both)
+
+     TYPE SCALE (IBM Plex Sans / Mono)
+     display  clamp(2.75rem, 6vw, 3.75rem) 700 -0.02em
+     h2       clamp(1.75rem, 3.5vw, 2rem) 600 -0.015em
+     h3       1.125rem 600 -0.005em
+     body     1rem 400 / 1.6
+     small    0.875rem / 1.6
+     mono-xs  0.6875rem Mono 500 +0.14em uppercase — labels
+
+     SPACE SCALE   4 8 12 16 24 32 48 64 96 128 (px)
+     RADIUS        card 10px · input 6px · pill 999px
+     SHADOW-1      0 1px 2px rgba(12,27,42,.06), 0 8px 24px rgba(12,27,42,.07)
+     SHADOW-2      0 2px 4px rgba(12,27,42,.08), 0 16px 40px rgba(12,27,42,.12)
+     MOTION        240ms cubic-bezier(.22,.61,.36,1)
+     ============================================================ */
+
+  /* ---------- Tokens ---------- */
+  :root {
+    --paper: #F6F8FB;
+    --surface: #FFFFFF;
+    --ink: #0C1B2A;
+    --ink-2: #46586B;
+    --line: #DCE3EC;
+    --navy: #0A1A2F;
+    --navy-2: #12263F;
+    --action: #2058E0;
+    --action-hover: #1A47B8;
+    --signal: #00B4D8;
+    --ok: #0E9F6E;
+    --err: #D64545;
+    --focus: #3F7BF2;
+
+    --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --fs-display: clamp(2.75rem, 6vw, 3.75rem);
+    --fs-h2: clamp(1.75rem, 3.5vw, 2rem);
+    --fs-h3: 1.125rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+    --fs-mono-xs: 0.6875rem;
+
+    --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+    --sp-9: 96px; --sp-10: 128px;
+
+    --r-card: 10px;
+    --r-input: 6px;
+    --r-pill: 999px;
+
+    --shadow-1: 0 1px 2px rgba(12,27,42,.06), 0 8px 24px rgba(12,27,42,.07);
+    --shadow-2: 0 2px 4px rgba(12,27,42,.08), 0 16px 40px rgba(12,27,42,.12);
+
+    --dur: 240ms;
+    --ease: cubic-bezier(.22, .61, .36, 1);
+
+    --section-y: clamp(64px, 9vw, 128px);
+    --nav-h: 72px;
+  }
+
+  /* ---------- Reset & base ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img, svg, canvas { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul, ol { list-style: none; }
+  button { font: inherit; border: 0; background: none; cursor: pointer; color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+  .skip-link {
+    position: absolute; top: -48px; left: 16px; z-index: 200;
+    background: var(--action); color: #fff; padding: 10px 16px;
+    border-radius: var(--r-input); font-weight: 600; transition: top var(--dur) var(--ease);
+  }
+  .skip-link:focus { top: 12px; }
+
+  .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 24px); }
+  .mono { font-family: var(--font-mono); }
+
+  /* ---------- Section rule (calibration signature) ---------- */
+  .sec-rule {
+    display: flex; align-items: center; gap: var(--sp-4);
+    margin-bottom: var(--sp-6);
+  }
+  .sec-index, .sec-label {
+    font-family: var(--font-mono); font-size: var(--fs-mono-xs);
+    font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-2); white-space: nowrap;
+  }
+  .sec-ticks {
+    flex: 1; height: 9px; min-width: 24px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 10px);
+  }
+  .on-dark .sec-index, .on-dark .sec-label { color: rgba(255,255,255,.66); }
+  .on-dark .sec-ticks { background: repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 1px, transparent 1px 10px); }
+
+  /* ---------- Buttons & pills ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+    padding: 14px 26px; border-radius: var(--r-card);
+    font-weight: 600; font-size: var(--fs-small); line-height: 1;
+    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease),
+                border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .btn-primary { background: var(--action); color: #fff; }
+  .btn-primary:hover { background: var(--action-hover); transform: translateY(-1px); box-shadow: var(--shadow-1); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.28); color: #fff; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.06); }
+  .btn-outline { border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  .btn-outline:hover { border-color: var(--ink-2); transform: translateY(-1px); }
+  .text-link { font-weight: 600; font-size: var(--fs-small); color: var(--action); display: inline-flex; align-items: center; gap: 6px; transition: gap var(--dur) var(--ease); }
+  .text-link:hover { gap: 10px; }
+  .on-dark .text-link { color: var(--signal); }
+  .pill {
+    display: inline-flex; align-items: center;
+    font-family: var(--font-mono); font-size: var(--fs-mono-xs);
+    letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
+    padding: 5px 12px; border-radius: var(--r-pill);
+    border: 1px solid var(--line); color: var(--ink-2); background: var(--paper);
+  }
+  .on-dark .pill { border-color: rgba(0,180,216,.35); color: var(--signal); background: rgba(0,180,216,.07); }
+
+  /* ---------- Views / router ---------- */
+  .view { display: none; }
+  .view.is-active { display: block; }
+
+  /* ============================================================
+     NAVBAR
+     ============================================================ */
+  .nav {
+    position: fixed; inset-inline: 0; top: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(10, 26, 47, .66);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .nav.is-scrolled { background: rgba(10, 26, 47, .92); border-bottom-color: rgba(255,255,255,.12); }
+  .nav-inner { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); }
+
+  .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 8px; flex: none;
+    background:
+      radial-gradient(circle at 25% 25%, var(--signal) 1.6px, transparent 2px),
+      radial-gradient(circle at 75% 25%, var(--signal) 1.6px, transparent 2px),
+      radial-gradient(circle at 25% 75%, var(--signal) 1.6px, transparent 2px),
+      radial-gradient(circle at 75% 75%, var(--signal) 1.6px, transparent 2px),
+      radial-gradient(circle at 50% 50%, var(--signal) 1.6px, transparent 2px),
+      linear-gradient(160deg, #1E3A5F, var(--navy-2));
+    border: 1px solid rgba(0,180,216,.4);
+  }
+  .brand-name { font-weight: 700; font-size: 1.0625rem; letter-spacing: .04em; }
+  .brand-sub { display: block; font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-top: 1px; }
+
+  .nav-links { display: flex; align-items: center; gap: var(--sp-1); }
+  .nav-links a {
+    padding: 9px 13px; border-radius: 8px; color: rgba(255,255,255,.78);
+    font-size: var(--fs-small); font-weight: 500;
+    transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+  }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+  .nav-links a[aria-current="page"] { color: #fff; background: rgba(255,255,255,.1); }
+  .nav-links a[aria-current="page"]::after { content: ""; display: block; height: 2px; margin-top: 5px; background: var(--signal); border-radius: 2px; }
+
+  .nav-cta { display: inline-flex; }
+  .nav .btn { padding: 11px 20px; }
+
+  .nav-toggle { display: none; width: 44px; height: 44px; border-radius: 8px; position: relative; }
+  .nav-toggle span {
+    position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px;
+    background: #fff; transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .nav-toggle span:nth-child(1) { top: 15px; }
+  .nav-toggle span:nth-child(2) { top: 21px; }
+  .nav-toggle span:nth-child(3) { top: 27px; }
+  .nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .nav-panel { display: none; }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--navy); color: #fff;
+    padding-top: calc(var(--nav-h) + clamp(56px, 10vw, 112px));
+    padding-bottom: 0;
+  }
+  .hero::before { /* blueprint grid */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.35) 60%, transparent 95%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.35) 60%, transparent 95%);
+  }
+  #lattice { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-content { max-width: 720px; padding-bottom: clamp(48px, 7vw, 80px); }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: var(--fs-mono-xs); font-weight: 500;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--signal);
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: var(--sp-5);
+  }
+  .hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--signal); }
+  .hero h1 {
+    font-size: var(--fs-display); font-weight: 700; line-height: 1.06;
+    letter-spacing: -0.02em; margin-bottom: var(--sp-5); text-wrap: balance;
+  }
+  .hero-sub { font-size: clamp(1.0625rem, 2vw, 1.1875rem); color: rgba(255,255,255,.78); max-width: 560px; margin-bottom: var(--sp-6); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+
+  /* Trust strip — counters on the dark ground */
+  .trust {
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(255,255,255,.12);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .trust-item { padding: var(--sp-6) var(--sp-5); border-inline-start: 1px solid rgba(255,255,255,.12); }
+  .trust-item:first-child { border-inline-start: 0; }
+  .stat-num {
+    font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.75rem, 3.4vw, 2.25rem);
+    letter-spacing: -0.02em; color: #fff; display: block;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label { display: block; margin-top: 6px; font-size: var(--fs-small); color: rgba(255,255,255,.66); }
+  .trust-note { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.12); padding: 12px 0; }
+  .trust-note p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.38); }
+
+  /* ============================================================
+     LIGHT SECTIONS (shared)
+     ============================================================ */
+  .section { padding-block: var(--section-y); background: var(--paper); }
+  .section-head { max-width: 640px; margin-bottom: var(--sp-8); }
+  .section-head h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: var(--sp-4); text-wrap: balance; }
+  .section-head p { color: var(--ink-2); }
+
+  /* Technology cards */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  .t-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card);
+    padding: var(--sp-6) var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-4);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .t-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); border-color: #C9D4E2; }
+  .t-card svg { width: 36px; height: 36px; stroke: var(--action); }
+  .t-card h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
+  .t-card p { font-size: var(--fs-small); color: var(--ink-2); flex: 1; }
+  .t-card .text-link { margin-top: auto; }
+  .t-num { font-family: var(--font-mono); font-size: var(--fs-mono-xs); letter-spacing: .14em; color: var(--ink-2); }
+
+  /* Products teaser */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .p-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card);
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .p-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+  .p-visual {
+    height: 150px; position: relative; overflow: hidden;
+    background: var(--navy);
+  }
+  .p-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .p-visual svg { position: absolute; inset: 0; margin: auto; width: 72px; height: 72px; stroke: var(--signal); }
+  .p-body { padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-3); flex: 1; }
+  .p-body h3 { font-size: var(--fs-h3); font-weight: 600; }
+  .p-body > p { font-size: var(--fs-small); color: var(--ink-2); flex: 1; }
+
+  /* Insights teaser */
+  .i-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .i-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card);
+    padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-3);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .i-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+  .i-meta { display: flex; align-items: center; gap: var(--sp-3); }
+  .i-date { font-family: var(--font-mono); font-size: var(--fs-mono-xs); letter-spacing: .1em; color: var(--ink-2); }
+  .i-card h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.35; }
+  .i-card p { font-size: var(--fs-small); color: var(--ink-2); flex: 1; }
+
+  /* ============================================================
+     CTA BAND & FOOTER (dark)
+     ============================================================ */
+  .cta-band { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
+  .cta-band::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-7); padding-block: clamp(56px, 8vw, 96px); }
+  .cta-inner h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--sp-3); max-width: 480px; }
+  .cta-inner p { color: rgba(255,255,255,.72); max-width: 440px; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: var(--sp-4); flex: none; }
+
+  .footer { background: var(--navy-2); color: rgba(255,255,255,.72); border-top: 1px solid rgba(255,255,255,.08); }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--sp-7);
+    padding-block: var(--sp-8) var(--sp-7);
+  }
+  .footer .brand { margin-bottom: var(--sp-4); }
+  .footer-blurb { font-size: var(--fs-small); max-width: 300px; }
+  .footer h4 { font-family: var(--font-mono); font-size: var(--fs-mono-xs); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: var(--sp-4); }
+  .footer-links li + li { margin-top: 10px; }
+  .footer-links a { font-size: var(--fs-small); transition: color var(--dur) var(--ease); }
+  .footer-links a:hover { color: #fff; }
+  .footer-contact li { font-size: var(--fs-small); display: flex; gap: 10px; }
+  .footer-contact li + li { margin-top: 12px; }
+  .footer-contact svg { width: 16px; height: 16px; stroke: var(--signal); flex: none; margin-top: 3px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08); padding-block: var(--sp-5);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap;
+  }
+  .footer-bottom p { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: rgba(255,255,255,.45); }
+  .footer-legal { display: flex; gap: var(--sp-5); }
+  .footer-legal a { font-size: var(--fs-small); color: rgba(255,255,255,.55); }
+  .footer-legal a:hover { color: #fff; }
+
+  /* ============================================================
+     STUB VIEW (pages shipping in Phase 2)
+     ============================================================ */
+  .stub { min-height: calc(100vh - var(--nav-h)); background: var(--navy); color: #fff; display: grid; place-items: center; text-align: center; position: relative; overflow: hidden; padding: var(--sp-9) 0; }
+  .stub::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .stub-inner { position: relative; max-width: 520px; padding-inline: clamp(20px, 4vw, 24px); display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
+  .stub h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; letter-spacing: -0.015em; }
+  .stub p { color: rgba(255,255,255,.72); }
+
+  /* ============================================================
+     REVEAL ANIMATION
+     ============================================================ */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 640ms var(--ease), transform 640ms var(--ease); }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal[data-delay="1"] { transition-delay: 80ms; }
+  .reveal[data-delay="2"] { transition-delay: 160ms; }
+  .reveal[data-delay="3"] { transition-delay: 240ms; }
+
+  /* ============================================================
+     RESPONSIVE (mobile-first overrides)
+     ============================================================ */
+  @media (max-width: 1023px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3, .i-list { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 860px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: block; }
+    .nav.is-open { background: rgba(10,26,47,.98); }
+    .nav-panel {
+      display: block; position: fixed; top: var(--nav-h); inset-inline: 0; z-index: 99;
+      background: rgba(10,26,47,.98); border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: var(--sp-4) clamp(20px, 4vw, 24px) var(--sp-6);
+      transform: translateY(-8px); opacity: 0; pointer-events: none;
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .nav.is-open .nav-panel { transform: none; opacity: 1; pointer-events: auto; }
+    .nav-panel a {
+      display: block; padding: 14px 10px; color: rgba(255,255,255,.85);
+      font-size: 1.0625rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-panel a[aria-current="page"] { color: var(--signal); }
+    .nav-panel .btn { margin-top: var(--sp-5); width: 100%; }
+    .trust { grid-template-columns: repeat(2, 1fr); }
+    .trust-item:nth-child(odd) { border-inline-start: 0; }
+    .trust-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.12); }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 620px) {
+    .grid-4, .grid-3, .i-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .hero-ctas .btn { width: 100%; }
+  }
+
+  /* ============================================================
+     REDUCED MOTION — everything resolves instantly
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+    .reveal { opacity: 1; transform: none; }
+    .btn:hover, .t-card:hover, .p-card:hover, .i-card:hover { transform: none; }
+  }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ====== NAVBAR ====== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#/home" class="brand" aria-label="NANOLITH — home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <span class="brand-name">NANOLITH</span><!-- [PLACEHOLDER] company name -->
+          <span class="brand-sub">Micro · Nano Systems</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#/home" data-route="#/home">Home</a></li>
+          <li><a href="#/technology" data-route="#/technology">Technology</a></li>
+          <li><a href="#/products" data-route="#/products">Products</a></li>
+          <li><a href="#/about" data-route="#/about">About</a></li>
+          <li><a href="#/insights" data-route="#/insights">Insights</a></li>
+          <li><a href="#/contact" data-route="#/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#/contact" class="btn btn-primary nav-cta">Request a Quote</a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile panel -->
+    <div class="nav-panel" id="navPanel">
+      <nav aria-label="Mobile">
+        <ul id="navLinksMobile">
+          <li><a href="#/home" data-route="#/home">Home</a></li>
+          <li><a href="#/technology" data-route="#/technology">Technology</a></li>
+          <li><a href="#/products" data-route="#/products">Products</a></li>
+          <li><a href="#/about" data-route="#/about">About</a></li>
+          <li><a href="#/insights" data-route="#/insights">Insights</a></li>
+          <li><a href="#/contact" data-route="#/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#/contact" class="btn btn-primary">Request a Quote</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ====== VIEW: HOME ====== -->
+    <section class="view is-active" id="view-home" data-title="NANOLITH — Engineering Matter at the Nanoscale">
+
+      <!-- Hero -->
+      <div class="hero on-dark">
+        <canvas id="lattice" aria-hidden="true"></canvas>
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <p class="hero-eyebrow">Micro &amp; Nanotechnology · Cleanroom-Grade R&amp;D</p>
+            <h1>Engineering matter at the nanoscale.</h1>
+            <p class="hero-sub">NANOLITH designs, fabricates and characterizes micro- and nano-scale systems for research and industry — from first simulation to packaged, testable device.</p>
+            <div class="hero-ctas">
+              <a href="#/technology" class="btn btn-primary">Explore Technologies</a>
+              <a href="#/contact" class="btn btn-ghost">Request a Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust strip: animated counters -->
+        <div class="container">
+          <div class="trust" role="list" aria-label="Company track record">
+            <div class="trust-item" role="listitem">
+              <span class="stat-num" data-count="24" data-suffix="+">0</span>
+              <span class="stat-label">Patents Granted</span>
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="stat-num" data-count="130" data-suffix="+">0</span>
+              <span class="stat-label">Peer-Reviewed Publications</span>
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="stat-num" data-count="12">0</span>
+              <span class="stat-label">Years of Applied Research</span>
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="stat-num" data-count="40" data-suffix="+">0</span>
+              <span class="stat-label">Industrial &amp; Academic Partners</span>
+            </div>
+          </div>
+          <div class="trust-note">
+            <p>Figures pending client verification — replace with audited data before launch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology platform cards -->
+      <section class="section" aria-labelledby="tech-title">
+        <div class="container">
+          <div class="sec-rule" aria-hidden="true">
+            <span class="sec-index">01 / 04</span>
+            <span class="sec-ticks"></span>
+            <span class="sec-label">Technology Platform</span>
+          </div>
+          <div class="section-head reveal">
+            <h2 id="tech-title">Four disciplines, one integrated pipeline.</h2>
+            <p>Every engagement moves through the same controlled path — modeled, fabricated, measured and verified under one roof.</p>
+          </div>
+
+          <div class="grid-4">
+            <article class="t-card reveal">
+              <span class="t-num">T·01</span>
+              <svg viewBox="0 0 36 36" fill="none" stroke-width="1.5" aria-hidden="true">
+                <rect x="4" y="22" width="28" height="8" rx="1.5"/><rect x="8" y="14" width="20" height="8" rx="1.5"/><rect x="12" y="6" width="12" height="8" rx="1.5"/>
+              </svg>
+              <h3>Nanofabrication</h3>
+              <p>Sub-100&nbsp;nm patterning, thin-film deposition and precision etch processes executed in a class-1000 cleanroom.</p>
+              <a href="#/technology" class="text-link">Learn more <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="t-card reveal" data-delay="1">
+              <span class="t-num">T·02</span>
+              <svg viewBox="0 0 36 36" fill="none" stroke-width="1.5" aria-hidden="true">
+                <circle cx="18" cy="18" r="12"/><path d="M18 2v8M18 26v8M2 18h8M26 18h8"/><circle cx="18" cy="18" r="2.5"/>
+              </svg>
+              <h3>Nanocharacterization</h3>
+              <p>Electron microscopy, AFM and spectroscopy pipelines with traceable, publication-grade metrology.</p>
+              <a href="#/technology" class="text-link">Learn more <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="t-card reveal" data-delay="2">
+              <span class="t-num">T·03</span>
+              <svg viewBox="0 0 36 36" fill="none" stroke-width="1.5" aria-hidden="true">
+                <path d="M2 24c4-12 8-12 12 0s8 12 12 0 6-9 8-6"/><circle cx="10" cy="15" r="2.5"/><circle cx="26" cy="13" r="2.5"/>
+              </svg>
+              <h3>Computational Modeling</h3>
+              <p>Multiphysics and molecular-dynamics simulation that de-risks every process before it runs on a wafer.</p>
+              <a href="#/technology" class="text-link">Learn more <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="t-card reveal" data-delay="3">
+              <span class="t-num">T·04</span>
+              <svg viewBox="0 0 36 36" fill="none" stroke-width="1.5" aria-hidden="true">
+                <path d="M18 3l10 6v12l-10 6-10-6V9l10-6z"/><path d="M18 9l6 3.5v7L18 23l-6-3.5v-7L18 9z"/><circle cx="18" cy="16" r="1.8"/>
+              </svg>
+              <h3>Device Integration</h3>
+              <p>From die to packaged, testable micro-systems — MEMS, NEMS and lab-on-chip assembly and validation.</p>
+              <a href="#/technology" class="text-link">Learn more <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products teaser -->
+      <section class="section" style="background: var(--surface); border-block: 1px solid var(--line);" aria-labelledby="prod-title">
+        <div class="container">
+          <div class="sec-rule" aria-hidden="true">
+            <span class="sec-index">02 / 04</span>
+            <span class="sec-ticks"></span>
+            <span class="sec-label">Products &amp; Solutions</span>
+          </div>
+          <div class="section-head reveal">
+            <h2 id="prod-title">Standard products, engineered to spec.</h2>
+            <p>Wafer-scale platforms you can order today — each with a full data sheet, specs and application notes.</p>
+          </div>
+
+          <div class="grid-3">
+            <article class="p-card reveal">
+              <div class="p-visual" aria-hidden="true">
+                <svg viewBox="0 0 72 72" fill="none" stroke-width="1.5">
+                  <circle cx="36" cy="36" r="26"/><circle cx="36" cy="36" r="4"/>
+                  <circle cx="36" cy="18" r="2.4"/><circle cx="36" cy="54" r="2.4"/>
+                  <circle cx="18" cy="36" r="2.4"/><circle cx="54" cy="36" r="2.4"/>
+                  <circle cx="23" cy="23" r="2.4"/><circle cx="49" cy="23" r="2.4"/>
+                  <circle cx="23" cy="49" r="2.4"/><circle cx="49" cy="49" r="2.4"/>
+                </svg>
+              </div>
+              <div class="p-body">
+                <span class="pill">Nanomaterials</span>
+                <h3>NL-Grid™ Nanoporous Membranes</h3>
+                <p>Uniform 10–200&nbsp;nm pore arrays on silicon and polymer supports for filtration and cell biology.</p>
+                <a href="#/products" class="text-link">View product <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article class="p-card reveal" data-delay="1">
+              <div class="p-visual" aria-hidden="true">
+                <svg viewBox="0 0 72 72" fill="none" stroke-width="1.5">
+                  <rect x="12" y="46" width="48" height="8" rx="2"/>
+                  <path d="M20 46l8-14 8 14M36 46l8-20 8 20"/>
+                  <path d="M16 26v-8M56 26v-8" stroke-dasharray="3 3"/>
+                </svg>
+              </div>
+              <div class="p-body">
+                <span class="pill">MEMS &amp; NEMS</span>
+                <h3>NX-Act MEMS Mirror Array</h3>
+                <p>Electrostatically actuated micromirrors for beam steering and adaptive optics at wafer scale.</p>
+                <a href="#/products" class="text-link">View product <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article class="p-card reveal" data-delay="2">
+              <div class="p-visual" aria-hidden="true">
+                <svg viewBox="0 0 72 72" fill="none" stroke-width="1.5">
+                  <path d="M8 24h28a8 8 0 018 8v0a8 8 0 01-8 8H24"/>
+                  <path d="M8 48h16M8 36h12"/>
+                  <circle cx="52" cy="32" r="2.4"/><circle cx="60" cy="32" r="2.4"/>
+                  <path d="M8 16v48" stroke-dasharray="4 4"/>
+                </svg>
+              </div>
+              <div class="p-body">
+                <span class="pill">Lab-on-Chip</span>
+                <h3>FloFlo™ Microfluidic Sorter</h3>
+                <p>Label-free particle sorting with 1&nbsp;µL/min flow precision for diagnostics and sample prep.</p>
+                <a href="#/products" class="text-link">View product <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div style="margin-top: var(--sp-7); text-align: center;" class="reveal">
+            <a href="#/products" class="btn btn-outline">Browse all products</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Insights teaser -->
+      <section class="section" aria-labelledby="ins-title">
+        <div class="container">
+          <div class="sec-rule" aria-hidden="true">
+            <span class="sec-index">03 / 04</span>
+            <span class="sec-ticks"></span>
+            <span class="sec-label">Latest Insights</span>
+          </div>
+          <div class="section-head reveal">
+            <h2 id="ins-title">Notes from the lab and the market.</h2>
+          </div>
+
+          <div class="i-list">
+            <article class="i-card reveal">
+              <div class="i-meta"><span class="pill">Research</span><span class="i-date">2026-03-14</span></div><!-- [PLACEHOLDER] dates -->
+              <h3>Critical-dimension control below 20&nbsp;nm with hybrid e-beam resists</h3>
+              <p>How a dual-tone resist stack reduced line-edge roughness by 31% across our pilot runs.</p>
+              <a href="#/insights" class="text-link">Read article <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="i-card reveal" data-delay="1">
+              <div class="i-meta"><span class="pill">Company</span><span class="i-date">2026-02-27</span></div>
+              <h3>NANOLITH expands cleanroom capacity for pilot-line production</h3>
+              <p>A second 200&nbsp;m² bay brings wafer-level packaging in-house, cutting lead times by 40%.</p>
+              <a href="#/insights" class="text-link">Read article <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="i-card reveal" data-delay="2">
+              <div class="i-meta"><span class="pill">Industry</span><span class="i-date">2026-01-19</span></div>
+              <h3>Why atomic-layer metrology is becoming a supply-chain requirement</h3>
+              <p>As feature sizes shrink, buyers are writing film-thickness tolerance directly into contracts.</p>
+              <a href="#/insights" class="text-link">Read article <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+
+          <div style="margin-top: var(--sp-7); text-align: center;" class="reveal">
+            <a href="#/insights" class="btn btn-outline">All insights &amp; news</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA band -->
+      <section class="cta-band on-dark" aria-labelledby="cta-title">
+        <div class="container cta-inner">
+          <div class="reveal">
+            <h2 id="cta-title">Have a nanoscale problem worth solving?</h2>
+            <p>Tell us the target spec. Our engineers respond within two working days with a feasibility view and a costed path forward.</p>
+          </div>
+          <div class="cta-actions reveal" data-delay="1">
+            <a href="#/contact" class="btn btn-primary">Request a Quote</a>
+            <a href="mailto:hello@nanolith.com" class="btn btn-ghost">Email the Team</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ====== VIEW: STUB (Technology, Products, About, Insights, Contact — Phase 2) ====== -->
+    <section class="view on-dark" id="view-stub" data-title="NANOLITH">
+      <div class="stub">
+        <div class="stub-inner">
+          <span class="pill" id="stubLabel">MODULE // PENDING</span>
+          <h1>This module ships in Phase&nbsp;2.</h1>
+          <p><strong id="stubName">This section</strong> is defined in the approved sitemap and will be built next — same design system, same signature motifs.</p>
+          <a href="#/home" class="btn btn-primary">Return Home</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer on-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#/home" class="brand" aria-label="NANOLITH — home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>
+              <span class="brand-name">NANOLITH</span><!-- [PLACEHOLDER] company name -->
+              <span class="brand-sub">Micro · Nano Systems</span>
+            </span>
+          </a>
+          <p class="footer-blurb">An advanced-technology company delivering nanofabrication, nanocharacterization and micro-system integration for research and industry.</p>
+        </div>
+
+        <nav aria-label="Footer — sitemap">
+          <h4>Sitemap</h4>
+          <ul class="footer-links">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/technology">Technology</a></li>
+            <li><a href="#/products">Products &amp; Solutions</a></li>
+            <li><a href="#/about">About &amp; Team</a></li>
+            <li><a href="#/insights">Insights</a></li>
+            <li><a href="#/contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Footer — capabilities">
+          <h4>Capabilities</h4>
+          <ul class="footer-links">
+            <li><a href="#/technology">Nanofabrication</a></li>
+            <li><a href="#/technology">Nanocharacterization</a></li>
+            <li><a href="#/technology">Computational Modeling</a></li>
+            <li><a href="#/technology">Device Integration</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.1 7-11a7 7 0 10-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>[PLACEHOLDER] Innovation District, Street &amp; No., City, Country</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <a href="mailto:hello@nanolith.com">hello@nanolith.com</a><!-- [PLACEHOLDER] -->
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+              <span>+00 [PLACEHOLDER]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> NANOLITH [PLACEHOLDER] · All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#/home">Privacy</a>
+          <a href="#/home">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- Router (hash-based; Phase 2 registers full views) ---------- */
+    var ROUTES = {
+      "#/home":       { view: "view-home" },
+      "#/technology": { view: "view-stub", stub: "Technology / R&D" },
+      "#/products":   { view: "view-stub", stub: "Products & Solutions" },
+      "#/about":      { view: "view-stub", stub: "About Us & Team" },
+      "#/insights":   { view: "view-stub", stub: "Insights / News" },
+      "#/contact":    { view: "view-stub", stub: "Contact & Inquiry" }
+    };
+    var nav = document.getElementById("nav");
+    var links = document.querySelectorAll("[data-route]");
+
+    function render() {
+      var hash = window.location.hash || "#/home";
+      if (!ROUTES[hash]) hash = "#/home";
+      var route = ROUTES[hash];
+
+      document.querySelectorAll(".view").forEach(function (v) { v.classList.remove("is-active"); });
+      var el = document.getElementById(route.view);
+      el.classList.add("is-active");
+
+      // Per-view title + stub label
+      if (route.stub) {
+        document.getElementById("stubLabel").textContent = "MODULE // " + route.stub.toUpperCase();
+        document.getElementById("stubName").textContent = route.stub;
+        document.title = route.stub + " — NANOLITH";
+      } else {
+        document.title = el.dataset.title || "NANOLITH";
+      }
+
+      // aria-current on every matching nav link (desktop + mobile)
+      links.forEach(function (a) {
+        if (a.getAttribute("data-route") === hash) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+
+      nav.classList.remove("is-open");
+      navToggleBtn.setAttribute("aria-expanded", "false");
+
+      window.scrollTo({ top: 0, behavior: REDUCED ? "auto" : "auto" });
+      initReveals(el);
+      initCounters(el);
+    }
+
+    /* ---------- Mobile navigation ---------- */
+    var navToggleBtn = document.getElementById("navToggle");
+    navToggleBtn.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      navToggleBtn.setAttribute("aria-expanded", String(open));
+    });
+    document.getElementById("navPanel").addEventListener("click", function (e) {
+      if (e.target.closest("a")) {
+        nav.classList.remove("is-open");
+        navToggleBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        navToggleBtn.setAttribute("aria-expanded", "false");
+        navToggleBtn.focus();
+      }
+    });
+
+    /* ---------- Navbar scrolled state ---------- */
+    function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 8); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* ---------- Scroll reveals (re-initialized per view) ---------- */
+    var revealIO = null;
+    if ("IntersectionObserver" in window && !REDUCED) {
+      revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add("is-in"); revealIO.unobserve(en.target); }
+        });
+      }, { threshold: 0.15 });
+    }
+    function initReveals(scope) {
+      scope.querySelectorAll(".reveal").forEach(function (r) {
+        if (revealIO) revealIO.observe(r);
+        else r.classList.add("is-in");
+      });
+    }
+
+    /* ---------- Animated counters ---------- */
+    function initCounters(scope) {
+      var els = scope.querySelectorAll("[data-count]");
+      if (!els.length) return;
+      if (REDUCED || !("IntersectionObserver" in window)) {
+        els.forEach(function (el) { setFinal(el); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          io.unobserve(en.target);
+          animate(en.target);
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { io.observe(el); });
+
+      function animate(el) {
+        var target = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || "";
+        var t0 = null, DUR = 1400;
+        function tick(t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min((t - t0) / DUR, 1);
+          var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          el.textContent = Math.round(target * eased).toLocaleString("en-US") + (p === 1 ? suffix : "");
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      function setFinal(el) {
+        el.textContent = parseInt(el.dataset.count, 10).toLocaleString("en-US") + (el.dataset.suffix || "");
+      }
+    }
+
+    /* ---------- Hero lattice: GPU-light particle field ---------- */
+    function initLattice() {
+      var canvas = document.getElementById("lattice");
+      if (!canvas) return;
+      var ctx = canvas.getContext("2d");
+      var hero = canvas.parentElement;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var W = 0, H = 0, pts = [], raf = null, running = false;
+      var mx = -9999, my = -9999;
+      var LINK = 130;
+
+      function seed() {
+        var n = Math.max(36, Math.min(90, Math.round((W * H) / 16000)));
+        pts = [];
+        for (var i = 0; i < n; i++) {
+          pts.push({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+            r: Math.random() * 1.1 + 1.1
+          });
+        }
+      }
+      function size() {
+        var rect = hero.getBoundingClientRect();
+        W = rect.width; H = rect.height;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        seed();
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        // links
+        for (var i = 0; i < pts.length; i++) {
+          for (var j = i + 1; j < pts.length; j++) {
+            var dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+            var d2 = dx * dx + dy * dy;
+            if (d2 < LINK * LINK) {
+              var a = (1 - Math.sqrt(d2) / LINK) * 0.32;
+              ctx.strokeStyle = "rgba(0,180,216," + a.toFixed(3) + ")";
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+            }
+          }
+        }
+        // dots
+        for (var k = 0; k < pts.length; k++) {
+          ctx.fillStyle = "rgba(255,255,255,0.8)";
+          ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, Math.PI * 2); ctx.fill();
+        }
+        // pointer node
+        if (mx > -999) {
+          ctx.strokeStyle = "rgba(0,180,216,0.5)";
+          ctx.beginPath(); ctx.arc(mx, my, 14, 0, Math.PI * 2); ctx.stroke();
+        }
+      }
+      function step() {
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          if (mx > -999) {
+            var dx = mx - p.x, dy = my - p.y, d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 180 && d > 1) { p.vx += (dx / d) * 0.012; p.vy += (dy / d) * 0.012; }
+          }
+          // clamp speed for calm motion
+          p.vx = Math.max(-0.6, Math.min(0.6, p.vx));
+          p.vy = Math.max(-0.6, Math.min(0.6, p.vy));
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -12) p.x = W + 12; if (p.x > W + 12) p.x = -12;
+          if (p.y < -12) p.y = H + 12; if (p.y > H + 12) p.y = -12;
+        }
+        draw();
+        if (running) raf = requestAnimationFrame(step);
+      }
+      function start() { if (!running && !REDUCED) { running = true; raf = requestAnimationFrame(step); } }
+      function stop() { running = false; if (raf) cancelAnimationFrame(raf); }
+
+      size();
+      if (REDUCED) { draw(); return; } // static lattice, no loop
+
+      start();
+      var rt = null;
+      window.addEventListener("resize", function () {
+        clearTimeout(rt); rt = setTimeout(size, 150);
+      });
+      hero.addEventListener("pointermove", function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mx = e.clientX - rect.left; my = e.clientY - rect.top;
+      });
+      hero.addEventListener("pointerleave", function () { mx = -9999; my = -9999; });
+      document.addEventListener("visibilitychange", function () {
+        document.hidden ? stop() : start();
+      });
+    }
+
+    /* ---------- Boot ---------- */
+    document.getElementById("year").textContent = new Date().getFullYear();
+    if (!window.location.hash) history.replaceState(null, "", "#/home");
+    render();
+    initLattice();
+    onScroll();
+    window.addEventListener("hashchange", render);
+  })();
+  </script>
+</body>
+</html>
